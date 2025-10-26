@@ -1,0 +1,12 @@
+wwwroot\app.css
+wwwroot\css\app.css
+wwwroot\css\portfolio.css
+wwwroot\icon-192.png
+wwwroot\images\profile.jpg
+wwwroot\index.html
+wwwroot\js\scrollBookmarks.js
+C:\Users\0xc0d\source\repos\BlazorApp3\wwwroot\app.css
+C:\Users\0xc0d\source\repos\BlazorApp3\wwwroot\css\app.css
+C:\Users\0xc0d\source\repos\BlazorApp3\wwwroot\css\portfolio.css
+C:\Users\0xc0d\source\repos\BlazorApp3\wwwroot\index.html
+C:\Users\0xc0d\source\repos\BlazorApp3\wwwroot\js\scrollBookmarks.js

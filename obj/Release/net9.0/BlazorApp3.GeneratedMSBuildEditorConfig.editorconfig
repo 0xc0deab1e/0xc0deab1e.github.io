@@ -1,0 +1,65 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BlazorApp3
+build_property.RootNamespace = BlazorApp3
+build_property.ProjectDir = C:\Users\0xc0d\source\repos\BlazorApp3\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\0xc0d\source\repos\BlazorApp3
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/Pages/Career.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyZWVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/Pages/Skills.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2tpbGxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/Shared/ExternalLink.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEV4dGVybmFsTGluay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/Shared/Header.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEhlYWRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/Shared/ScrollBookmarks.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNjcm9sbEJvb2ttYXJrcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/0xc0d/source/repos/BlazorApp3/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-nz0rfis4md

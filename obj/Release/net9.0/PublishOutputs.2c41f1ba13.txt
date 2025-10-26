@@ -1,0 +1,1 @@
+C:\Users\0xc0d\source\repos\BlazorApp3\bin\Release\net9.0\publish\web.config
