@@ -1,0 +1,4 @@
+wwwroot\app.css
+wwwroot\css\portfolio.css
+C:\Users\0xc0d\source\repos\BlazorApp1\wwwroot\app.css
+C:\Users\0xc0d\source\repos\BlazorApp1\wwwroot\css\portfolio.css
