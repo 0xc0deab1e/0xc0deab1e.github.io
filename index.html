@@ -1,23 +1,331 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" style="--blazor-load-percentage: 100%; --blazor-load-percentage-text: &quot;100%&quot;;">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BlazorApp3</title>
-    <base href="/" />
-    <link rel="stylesheet" href="css/app.css" />
-    <!-- If you add any scoped CSS files, uncomment the following to load them
-    <link href="BlazorApp3.styles.css" rel="stylesheet" /> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base href="/">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link href="BlazorApp3.styles.css" rel="stylesheet" />
+    <style id="mttstyle">
+        #mttContainer {
+            left: 0 !important;
+            top: 0 !important;
+            width: 1000px !important;
+            margin: 0px !important;
+            margin-left: -500px !important;
+            position: fixed !important;
+            z-index: 2147483647 !important; /* Maximum z-index to overcome overlays */
+            background: none !important;
+            pointer-events: none !important;
+            display: inline-block !important;
+            visibility: visible !important;
+            white-space: pre-line;
+        }
+
+        .tippy-box[data-theme~="custom"], .tippy-box[data-theme~="ocr"], .tippy-content * {
+            font-size: 14px !important;
+            text-align: center !important;
+            overflow-wrap: break-word !important;
+            color: #ffffffff !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+            white-space: pre-line;
+        }
+
+        .tippy-box[data-theme~="custom"] {
+            max-width: 200px !important;
+            backdrop-filter: blur(2px) !important;
+            background-color: #000000b8 !important;
+            border: 1px solid #ffffff00;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            opacity: 1.0; /* Adjusted opacity for transparency */
+        }
+
+        .tippy-box[data-theme~="ocr"] {
+            max-width: $1000px !important;
+            backdrop-filter: blur(2px) !important;
+            background-color: #000000b8 !important;
+            border: 1px solid #ffffff00;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            opacity: 1.0; /* Adjusted opacity for transparency */
+        }
+
+        .tippy-box[data-theme~="transparent"] {
+            max-width: $1000px !important;
+            backdrop-filter: blur(2px) !important;
+            background-color: #000000b8 !important;
+            border: 1px solid #ffffff00;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            opacity: 0.0; /* Adjusted opacity for transparency */
+            transition: opacity 0.3s ease-in-out; /* Added transition for opacity */
+        }
+
+        [data-tippy-root] {
+            display: inline-block !important;
+            visibility: visible !important;
+        }
+
+        .tippy-box[data-theme~='custom'][data-placement^='top'] > .tippy-arrow::before, .tippy-box[data-theme~='ocr'][data-placement^='top'] > .tippy-arrow::before {
+            border-top-color: #000000b8 !important;
+        }
+
+        .tippy-box[data-theme~='custom'][data-placement^='bottom'] > .tippy-arrow::before, .tippy-box[data-theme~='ocr'][data-placement^='bottom'] > .tippy-arrow::before {
+            border-bottom-color: #000000b8 !important;
+        }
+
+        .tippy-box[data-theme~='custom'][data-placement^='left'] > .tippy-arrow::before, .tippy-box[data-theme~='ocr'][data-placement^='left'] > .tippy-arrow::before {
+            border-left-color: #000000b8 !important;
+        }
+
+        .tippy-box[data-theme~='custom'][data-placement^='right'] > .tippy-arrow::before, .tippy-box[data-theme~='ocr'][data-placement^='right'] > .tippy-arrow::before {
+            border-right-color: #000000b8 !important;
+        }
+
+        .mtt-highlight {
+            background-color: #21dc6d40 !important;
+            position: absolute !important;
+            z-index: 2147483646 !important; /* Slightly lower than tooltip */
+            pointer-events: none !important;
+            display: inline !important;
+            border-radius: 3px !important;
+        }
+
+        .mtt-image {
+            width: 180px !important;
+            border-radius: 3px !important;
+        }
+
+        .ocr_text_div {
+            position: absolute;
+            opacity: 0.4;
+            color: transparent !important;
+            border: 2px solid CornflowerBlue;
+            background: none !important;
+            border-radius: 3px !important;
+        }
+    </style>
+    <style id="mttstyleSubtitle">
+        #ytp-caption-window-container .ytp-caption-segment {
+            cursor: text !important;
+            user-select: text !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+        }
+
+        .caption-visual-line {
+            display: flex !important;
+            align-items: stretch !important;
+            direction: ltr
+        }
+
+        .captions-text .caption-visual-line:first-of-type:after {
+            content: '⣿⣿';
+            border-radius: 3px !important;
+            color: white !important;
+            background: transparent !important;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            display: inline-block;
+            vertical-align: top;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out;
+        }
+
+        .ytp-caption-segment {
+            color: white !important;
+            text-shadow: 1px 1px 2px black !important;
+            backdrop-filter: blur(3px) !important;
+            background: rgba(8, 8, 8, 0.1) !important;
+        }
+
+        .captions-text:hover .caption-visual-line:first-of-type:after {
+            opacity: 1;
+        }
+
+        .ytp-pause-overlay {
+            display: none !important;
+        }
+
+        .ytp-expand-pause-overlay .caption-window {
+            display: block !important;
+        }
+    </style><!--!--><!--!--><!--!-->
+    <title>Home</title><!--!--><!--!--><!--!-->
 </head>
 
 <body>
     <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+        <!--!--><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="css/portfolio.css" b-nz0rfis4md="">
+
+        <!--!--><!--!--><div id="scroll-bookmarks" role="navigation" aria-label="Section bookmarks">
+            <button class="bookmark active" data-target="introduce" aria-label="Introduce"></button>
+            <button class="bookmark" data-target="about-me" aria-label="About"></button>
+            <button class="bookmark" data-target="skills" aria-label="Skills"></button>
+            <button class="bookmark" data-target="career" aria-label="Career"></button>
+        </div><!--!-->
+        <!--!--><header class="site-header" role="banner" aria-label="Primary">
+            <div class="header-inner">
+                <!--!--><div class="brand"><a href="/" class="brand-link">김준호 포트폴리오</a></div>
+
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <!--!--><a href="/#introduce" class="nav-link">Introduce</a><!--!-->
+                    <!--!--><a href="/#skills" class="nav-link">Skills</a><!--!-->
+                    <!--!--><a href="/#career" class="nav-link">Career</a>
+                </nav>
+            </div>
+        </header><!--!-->
+
+        <div class="page-container" b-nz0rfis4md="">
+            <!--!--><!--!--><!--!--><!--!-->
+            <!--!--><div class="intro-wrap">
+                <img class="profile-photo" src="images/profile.jpg" alt="김준호">
+                <section id="introduce">
+                    <div class="intro-content">
+                        <h2>개발자이자 설계자</h2>
+                        <h1 tabindex="-1">김준호</h1>
+                        <h3>
+                            개발과 설계의 본질은 매 순간의 트레이드 오프를 판단하고 결정하는 일이라고 생각합니다.
+                        </h3>
+                        <h3>
+                            옳은 판단은 결국 <b>핵심을 얼마나 정확히 파악하는지</b>에서 비롯된다고 믿습니다.
+                        </h3>
+                        <h3>
+                            저는 더 나은 판단을 위해 언제나 새로운 기술과 도구를 배우는 데 열려있습니다.
+                        </h3>
+                    </div>
+                </section>
+            </div>
+
+            <!--!--><section id="about-me">
+                <div>
+                    <p>about me</p>
+                    <div>
+                        <p>이름</p>
+                        <p>김준호</p>
+                    </div>
+                    <div>
+                        <p>연락처</p>
+                        <p>010-3842-3492</p>
+                    </div>
+                    <div>
+                        <p>이메일</p>
+                        <p>0xc0deab1e@gmail.com</p>
+                    </div>
+                </div>
+            </section>
+
+            <!--!--><section id="skills">
+                <h1>skills</h1>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <p class="skill-title">Languages</p>
+                        <div class="skill-list">
+                            <span class="skill-item">C#</span>
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">TypeScript</span>
+                            <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <p class="skill-title">Frameworks &amp; Libraries</p>
+                        <div class="skill-list">
+                            <span class="skill-item">.NET</span>
+                            <span class="skill-item">Blazor</span>
+                            <span class="skill-item">ASP.NET Core</span>
+                            <span class="skill-item">Entity Framework Core</span>
+                            <span class="skill-item">Node.js</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <p class="skill-title">Databases</p>
+                        <div class="skill-list">
+                            <span class="skill-item">SQL Server</span>
+                            <span class="skill-item">MySQL</span>
+                            <span class="skill-item">Redis</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <p class="skill-title">Tools &amp; Platforms</p>
+                        <div class="skill-list">
+                            <span class="skill-item">AWS</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="career">
+                <div>
+                    <!--!--><p>career</p>
+                    <div class="timeline">
+                        <!--!--><p>Employment</p>
+                        <div class="timeline-item">
+                            <!--!--><p>2023.03 - 2025.09</p>
+                            <p><externallink href="https://www.readykorea.co.kr/"><!--!-->레디코리아</externallink></p><!--!-->
+                            <!--!--><p>통관 전자문서 자동화 서비스</p>
+                            <!--!--><span class="role">윈도우 프로그래머</span>
+                            <!--!--><ul>
+                                <li>프로그램 포팅 (호주 -&gt; 한국) 및 추가개발</li>
+                                <li>코드 리뷰 및 리팩토링, 테크 리딩</li>
+                            </ul>
+                        </div><!--!-->
+                        <!--!--><div class="timeline-item">
+                            <p>2022.05 - 2023.03</p>
+                            <p><a href="https://www.trenbe.com/" target="_blank" rel="noopener noreferrer">트렌비</a></p>
+                            <p>해외 명품 직구 플랫폼</p>
+                            <span class="role">백엔드 엔지니어</span>
+                            <ul>
+                                <li>상품 정보 크롤링, 가공, 및 서빙</li>
+                                <li>프로젝트 마이그레이션 (.Net Framework -&gt; .Net Core)</li>
+                                <li>고정비용 절감 - AWS SQS, VPN 리소스 효율성 제고</li>
+                            </ul>
+                        </div>
+
+                        <!--!--><div class="timeline-item">
+                            <p>2020.07 - 2022.04</p>
+                            <p><a href="https://toon.at" target="_blank" rel="noopener noreferrer">투네이션</a></p>
+                            <p>크리에이터 후원 플랫폼</p>
+                            <span class="role">백엔드 엔지니어</span>
+                            <ul>
+                                <li>선물후원 기능 개발</li>
+                                <li>'럭키픽' 기능 개발</li>
+                                <li>후원금 정산 시스템 개발</li>
+                                <li>백오피스 전반 개발</li>
+                            </ul>
+                        </div>
+
+                        <!--!--><p>Education</p>
+                        <!--!--><div class="timeline-item">
+                            <p>경기대학교 컴퓨터과학과</p>
+                            <ul>
+                                <li>C 프로그래밍</li>
+                                <li>데이터베이스</li>
+                                <li>소프트웨어 공학</li>
+                                <li>알고리즘</li>
+                                <li>자료구조론</li>
+                                <li>자바 프로그래밍</li>
+                                <li>컴퓨터 교육론</li>
+                                <li>컴퓨터 네트워크</li>
+                                <li>컴퓨터 보안</li>
+                                <li>프로그래밍 언어론</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div><!--!-->
+
+        <script src="js/scrollBookmarks.js" b-nz0rfis4md=""></script>
+
+        <!--!--><div id="blazor-error-ui" data-nosnippet="" b-nz0rfis4md="">
+            An unhandled error has occurred.
+            <a href="." class="reload" b-nz0rfis4md="">Reload</a>
+            <span class="dismiss" b-nz0rfis4md="">🗙</span>
+        </div><!--!-->
+        <!--!-->
     </div>
 
     <div id="blazor-error-ui">
@@ -26,6 +334,12 @@
         <span class="dismiss">🗙</span>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
-</body>
 
+    <!-- Visual Studio Browser Link -->
+    <script type="text/javascript" src="/_vs/browserLink" async="async" id="__browserLink_initializationData" data-requestid="dd15217653314333aaeb364e04ce2d90" data-requestmappingfromserver="false" data-connecturl="http://localhost:51468/b2f49685230c47eebaea957c75c0422f/browserLink"></script>
+    <!-- End Browser Link -->
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+
+
+</body>
 </html>
